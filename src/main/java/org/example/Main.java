@@ -6,35 +6,36 @@ public class Main {
     }
 
     public static boolean shouldWakeUp(boolean isBarking, int clock) {
-        if(isBarking &&  ((8 <= clock)&& (clock<= 20))){
-            return true;
-        } else {
-            return false;
-        }
+         if(clock < 0 || clock > 23){
+             return false;
+         }
+
+         if( isBarking &&  (clock > 20 || clock < 8)){
+             return true;
+         } else {
+             return false;
+         }
+
+
     }
 
     public static boolean hasTeen(int firstAge, int secondAge, int thirdAge) {
 
-        boolean first = (firstAge > 13 && firstAge <19);
-        boolean second = (secondAge > 13 && secondAge <19);
-        boolean third = (thirdAge > 13 && thirdAge <19);
-
-
-        if(first || second|| third){
-            return true;
-        } else{
-          return  false;
-        }
+        return ((firstAge >= 13 && firstAge <=19) || (secondAge >= 13 && secondAge <=19) || (thirdAge >= 13 && thirdAge <=19) );
 
     }
 
     public static boolean isCatPlaying(boolean isSummer, int temp) {
-        boolean isSummerTemp = temp >25 && temp <35;
-        boolean isNotSummerTemp = temp >35 && temp <45;
+        boolean isNotSummerTemp = temp >= 25 && temp <=35;
+        boolean isSummerTemp = temp >= 25 && temp <=45;
 
         boolean play = (isSummer && isSummerTemp) || (!isSummer && isNotSummerTemp);
 
-       return play ? true :false;
+       if (play){
+           return true;
+       } else {
+           return false;
+       }
 
     }
 
